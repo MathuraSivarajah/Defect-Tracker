@@ -12,6 +12,10 @@ import com.sgic.internal.defecttracker.defect.entities.DefectType;
 import com.sgic.internal.defecttracker.defect.repositories.DefectTypeRepository;
 import com.sgic.internal.defecttracker.defect.services.DefectTypeService;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
+
 @Service
 public class DefectTypeServiceImpl implements DefectTypeService {
 
@@ -20,6 +24,13 @@ public class DefectTypeServiceImpl implements DefectTypeService {
 	
 	private static Logger logger = LogManager.getLogger(DefectTypeServiceImpl.class);
 
+	public static<T> List<T> reverseList(List<T> list)
+	{
+		List<T> reverse = new ArrayList<>(list);
+		Collections.reverse(reverse);
+		return reverse;
+	}
+	
 	// Create defect type service implementation
 	@Override
 	public Object createDefectType(DefectType defectType) {
@@ -40,7 +51,7 @@ public class DefectTypeServiceImpl implements DefectTypeService {
 	public List<DefectType> findAllDefectType() {
 		List<DefectType> defectTypes = defectTypeRepository.findAll();
 		//logger.info("List All Defect Types Service Implementation");
-		return defectTypes;
+		return reverseList(defectTypes);
 	}
 
 	// Delete defect type implementation
@@ -56,5 +67,10 @@ public class DefectTypeServiceImpl implements DefectTypeService {
 	public DefectType findDefectTypeById(long id) {
 		//logger.info("Get Defect Type By Id Service Implementation");
 		return defectTypeRepository.findById(id).orElse(null);
+	}
+
+	@Override
+	public int getDefectTypeCount() {
+		return (int) defectTypeRepository.count();
 	}
 }

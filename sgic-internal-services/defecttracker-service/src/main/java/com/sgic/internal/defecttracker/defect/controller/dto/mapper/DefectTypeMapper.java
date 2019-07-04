@@ -12,6 +12,7 @@ import com.sgic.internal.defecttracker.defect.entities.DefectType;
 import com.sgic.internal.defecttracker.defect.services.DefectTypeService;
 import com.sgic.internal.defecttracker.defect.services.impl.DefectTypeServiceImpl;
 
+
 @Service
 public class DefectTypeMapper {
 	@Autowired
@@ -87,5 +88,10 @@ public class DefectTypeMapper {
 			//logger.info("Defect Type Update Mapper");
 			return true;
 		}		
+	}
+	
+	// Mapper for count defect type
+	public int getDefectTypeCount() {
+		return defectTypeService.getDefectTypeCount();
 	}
 }

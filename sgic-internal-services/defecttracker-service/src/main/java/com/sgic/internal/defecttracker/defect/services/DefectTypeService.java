@@ -10,5 +10,6 @@ public interface DefectTypeService {
 	DefectType findDefectTypeById(long id); // Get defect type by id
 	List<DefectType> findAllDefectType(); // List all defect types
 	Boolean deleteDefectTypeById(long id); // Delete defect type
+	public int getDefectTypeCount(); // Count defect type
 	
 }

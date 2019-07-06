@@ -24,7 +24,7 @@ import com.sgic.internal.defecttracker.defect.controller.dto.mapper.DefectTypeMa
 import com.sgic.internal.defecttracker.defect.services.impl.DefectTypeServiceImpl;
 
 @RestController
-@CrossOrigin(origins="http://localhost:3001")
+@CrossOrigin(origins="http://localhost:3000")
 public class DefectTypeController {
 	private static Logger logger = LogManager.getLogger(DefectTypeServiceImpl.class);
 

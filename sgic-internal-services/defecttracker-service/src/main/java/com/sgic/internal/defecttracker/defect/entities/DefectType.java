@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 import org.springframework.stereotype.Component;
 
@@ -20,10 +22,13 @@ public class DefectType implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id; // Defect type id
 	
-	@Column(nullable=false)
+	@Column(unique=true)
+	@Size(min = 2, max = 15)
+	@NotEmpty
 	private String name; // Defect type name
 	
-	@Column(nullable=false)
+	@Size(min = 10, max = 50)
+	@NotEmpty
 	private String value; // Defect type value
 	
 	

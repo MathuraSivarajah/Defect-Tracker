@@ -82,5 +82,11 @@ public class DefectStatusController {
 		logger.info("Defect Status Updated");
 		return new ResponseEntity<>("Defect Status Updated Succesfully", HttpStatus.OK);
 	}
+	// Count defect status controller
+	@GetMapping(value = "/countdefectstatus")
+	public int getDefectStatucCount() {
+		logger.info("Defect Status Counted");
+		return defectStatusMapper.getStatusCount();
+	}
 
 }

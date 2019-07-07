@@ -31,7 +31,7 @@ public class DefectTypeController {
 	@Autowired
 	private DefectTypeMapper defectTypeMapper;
 
-	// Author : Varnitha :: Create Defect Type
+	// Create Defect Type
 	@PostMapping(value = "/defecttype")
 	public ResponseEntity<Object> createDefectType(@RequestBody DefectTypeDto defectTypeDto) {
 		BasicConfigurator.configure();
@@ -40,11 +40,11 @@ public class DefectTypeController {
 			return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK), HttpStatus.OK);
 		} else {
 			logger.error("Defect Type Create Fail");
-			return new ResponseEntity<>("Defect Type Added Failure", HttpStatus.OK);
+			return new ResponseEntity<>("Defect Type Added Failure", HttpStatus.BAD_REQUEST);
 		}
 	}
 
-	// Author : Paheerathan :: Get All Defect Types
+	// Get All Defect Types
 	@GetMapping(value = "/defecttypes")
 	public List<DefectTypeDto> getAllDefectType() {
 		BasicConfigurator.configure();
@@ -52,7 +52,7 @@ public class DefectTypeController {
 		return defectTypeMapper.getAllDefectType();
 	}
 
-	// Author : Varnitha :: Get Defect Type By Id
+	// Get Defect Type By Id
 	
 	@GetMapping(value = "/defecttype/{id}")
 	public DefectTypeDto getDefectById(@PathVariable Long id) {
@@ -61,7 +61,7 @@ public class DefectTypeController {
 		return defectTypeMapper.getDefectTypeById(id);
 	}
 
-	// Author : Shawmiya :: Delete Defect Type	
+	// Delete Defect Type	
 	
 	@DeleteMapping("/defecttype/{id}")
 	public ResponseEntity<Object> deleteDefectType(@PathVariable Long id, @RequestBody DefectTypeDto defectTypeDto) {
@@ -71,7 +71,7 @@ public class DefectTypeController {
 		return new ResponseEntity<>("Defect Type Deleted Successfully", HttpStatus.OK);
 	}
 
-	// Author : Mathura :: Defect Type Updated
+	// Defect Type Updated
 	@PutMapping(value = "/defecttype/{id}")
 	public ResponseEntity<Object> updateDefectType(@RequestBody DefectTypeDto defectTypeDto, @PathVariable Long id) {
 		BasicConfigurator.configure();
@@ -80,7 +80,7 @@ public class DefectTypeController {
 		return new ResponseEntity<>(new ApiResponse(RestApiResponseStatus.OK), HttpStatus.OK);
 	}
 	
-	// Author : Mathura ::Count Defect Type 
+	// Count Defect Type 
 	@GetMapping("/countdefecttype")
 	public int getDefectTypeCount() {
 		BasicConfigurator.configure();
